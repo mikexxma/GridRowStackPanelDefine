@@ -6,8 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <!-- 在grid 布局中每个格子的控件是可以重叠了 如果总布局用stackpanel 可以避免重叠问题 
+        但grid 布局在适配方面表现更好 具体的 不知道哪里好
+        stackpanel 布局类似于android中的linearlayout 但是android用的多的还是相对布局 
+        为毛爆伯说stackpanel用的多 就不知道了
+    -->
+    <Grid>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="300" VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"></RowDefinition>
             <RowDefinition Height="1*"></RowDefinition>
@@ -21,6 +26,11 @@
         
         <Rectangle Fill="Red" Grid.Row="1" Grid.Column="2" Height="100"></Rectangle>
         <Button Grid.Column="0" Grid.Row="1" Height="100" Width="100" Content="hello Grid"></Button>
+        </Grid>
+        
+        <StackPanel Orientation="Vertical" Height="200"  Background="AliceBlue" VerticalAlignment="Bottom">
+            <Rectangle Fill="Beige" Height="300"></Rectangle>
+            <TextBlock Height="200">hello</TextBlock>
+        </StackPanel>
     </Grid>
-    
 </Page>
